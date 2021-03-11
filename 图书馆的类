@@ -1,0 +1,72 @@
+package library;
+
+public class Book {
+	String strName;
+	int iCount;
+	public Book(String inName, int inCount)
+	{
+		this.strName = inName;
+		this.iCount = inCount;
+	}
+
+}
+
+package library;
+
+public class Student {
+	String strName;
+	float fMoney;
+	Bag sc;
+	public Student(String inName,float inMoney)
+	{
+		this.strName = inName;
+		this.fMoney = inMoney;
+		this.sc = new Bag();
+	}
+	public void add(Book gd)
+	{
+		this.sc.add(gd);
+	}
+	
+}
+
+package library;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bag {
+	List<Book> liCar;
+	public Bag()
+	{
+		this.liCar = new ArrayList<Book>();
+	}
+	public void add(Book gd) {
+		this.liCar.add(gd);
+		
+	}
+
+}
+
+package library;
+
+public class Administrator {
+	String strName;
+	float fMoney;
+	public Administrator(String inName,float inMoney)
+	{
+		this.strName = inName;
+		this.fMoney = inMoney;
+	}
+	
+	public void print(Student cs)
+	{
+		for(int i =0;i<cs.sc.liCar.size();i++)
+		{
+			Book temp;
+			temp = cs.sc.liCar.get(i);
+			System.out.println("name:" + temp.strName);
+		}
+	}
+}
+
